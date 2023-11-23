@@ -1,0 +1,13 @@
+extend type Sector {
+    bar: String @ignore
+    javaData: [JavaData!] @ignore
+}
+
+type JavaData {
+    name: String
+}
+
+extend type Query {
+    companiasCount(nombre: String): String!
+    personasCount(apellidoPaterno: String, activo: Boolean): String!
+}

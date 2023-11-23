@@ -1,0 +1,145 @@
+scalar LocalDateTime
+scalar LocalDate
+
+type Pais {
+    _id: ID!
+    nombre: String!
+}
+
+type Estado {
+    _id: ID!
+    nombre: String!
+    pais: String!
+}
+
+type Codigo {
+    _id: ID!
+    cp: Int
+    estado: Estado @relation(name:"PERTENECE", direction:OUT)
+}
+
+type Municipio {
+    _id: ID!
+    nombre: String!
+    codigo: Codigo @relation(name:"PERTENECE", direction:OUT)
+    codigos: [Codigo] @relation(name:"PERTENECE", direction:OUT)
+}
+
+type Direccion {
+    _id: ID!
+    calle: String!
+    ciudad: String
+    tipo: String!
+    municipio: Municipio @relation(name:"SE_ENCUENTRA", direction: OUT)
+    codigo: Codigo @relation(name:"CODIGO", direction:OUT)
+    compania: Compania @relation(name:"DIRECCION", direction:IN)
+    persona: Persona @relation(name:"DIRECCION", direction:IN)
+}
+type Sector {
+   _id: ID!
+    nombre: String!
+    usuarioModificacion: String
+    fechaModificacion: LocalDateTime
+    companias: [Compania] @relation(name:"PERTENECE", direction:IN)
+}
+
+type Proveedor @relation(name:"PROVEEDOR") {
+    from: Compania
+    to: Compania
+    tipo: String!
+}
+
+type Area {
+    _id: ID!
+    nombre: String!
+    compania: Compania @relation(name:"CONTIENE", direction:IN)
+    companias: [Compania] @relation(name:"CONTIENE", direction:IN)
+}
+
+type Telefono {
+    _id: ID!
+    numero: String!
+    ciudad: String!
+    tipo: String!
+    compania: Compania @relation(name:"TELEFONO", direction:IN)
+    companias: [Compania] @relation(name:"TELEFONO", direction:IN)
+    persona: Persona @relation(name:"TELEFONO", direction:IN)
+    personas: [Persona] @relation(name:"TELEFONO", direction:IN)
+}
+
+type Compania {
+    _id: ID!
+    nombre: String!
+    usuarioModificacion: String
+    fechaModificacion: LocalDateTime
+    sector: Sector @relation(name:"PERTENECE", direction:OUT)
+    areas: [Area] @relation(name:"CONTIENE", direction:OUT)
+    telefonos: [Telefono] @relation(name:"TELEFONO", direction:OUT)
+    direcciones: [Direccion] @relation(name:"DIRECCION", direction:OUT)
+    subsidiaria: Compania @relation(name:"SUBSIDIARIA", direction:IN)
+    subsidiarias: [Compania] @relation(name:"SUBSIDIARIA", direction:IN)
+    proveedores: [Proveedor]
+    proveedorDel: Compania @relation(name:"PROVEEDOR", direction:OUT)
+}
+
+type Trabaja @relation(name:"TRABAJA", direction: OUT) {
+    from: Persona
+    to: Compania
+    puesto: String!
+}
+
+type Dirige @relation(name:"DIRIGE", direction: OUT) {
+    from: Persona
+    to: Area
+    idCompania: Int!
+    nombreCompania: String!
+}
+
+type Relacion @relation(name:"RELACION", direction: OUT) {
+    from: Persona
+    to: Persona
+    tipo: String!
+    nombre: String!
+}
+
+type Email {
+    _id: ID!
+    uri: String!
+    emails: [EmailAsignado]
+}
+
+type EmailAsignado @relation(name:"EMAIL") {
+    from: Persona
+    to: Email
+    email : String!
+}
+
+type Persona {
+    _id: ID!
+    nombre: String!
+    apellidoPaterno: String!
+    apellidoMaterno: String!
+    fechaNacimiento: LocalDate
+    genero: String!
+    estadoCivil: String!
+    usuarioModificacion: String
+    fechaModificacion: LocalDateTime
+    activo: Boolean!
+    idPersona:Int
+    trabaja: [Trabaja]
+    trabajaDel: Compania @relation(name:"TRABAJA", direction:OUT)
+    dirige: [Dirige]
+    dirigeDel: Area @relation(name:"DIRIGE", direction:OUT)
+    relaciones: [Relacion]
+    relacionDel: Persona @relation(name:"RELACION", direction:OUT)
+    telefonos: [Telefono] @relation(name:"TELEFONO", direction:OUT)
+    emails: [EmailAsignado]
+    emailDel: Email @relation(name:"EMAIL", direction:OUT)
+    direcciones: [Direccion] @relation(name:"DIRECCION", direction:OUT)
+}
+
+type Mutation {
+}
+
+
+
