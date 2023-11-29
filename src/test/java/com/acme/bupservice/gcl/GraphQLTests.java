@@ -24,16 +24,13 @@ package com.acme.bupservice.gcl;
 
 import com.acme.bupservice.EnableTestContainers;
 import com.acme.bupservice.model.Compania;
-import com.acme.bupservice.model.Estado;
-import com.acme.bupservice.repository.EstadoRepository;
-import com.acme.bupservice.repository.PersonaRepository;
+import com.acme.bupservice.model.Persona;
+import com.acme.bupservice.repository.CompaniaRepository;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.graphql.tester.AutoConfigureGraphQlTester;
-import org.springframework.graphql.test.tester.ExecutionGraphQlServiceTester;
-import org.springframework.graphql.ExecutionGraphQlService;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.cloud.stream.function.StreamBridge;
@@ -41,8 +38,6 @@ import org.springframework.graphql.test.tester.GraphQlTester;
 import org.springframework.security.oauth2.jwt.ReactiveJwtDecoder;
 import org.springframework.test.annotation.DirtiesContext;
 import org.springframework.test.context.ActiveProfiles;
-
-import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -110,9 +105,8 @@ public class GraphQLTests {
      * Validates database initialization.
      */
     @Test
-    void finAll(@Autowired EstadoRepository estadoRepository) {
+    void finAll(@Autowired CompaniaRepository companiaRepository) {
         /* Companies count */
-        /*
         String queryCompanyCount = """
                     query {
                         companiasCount(nombre:"ACME SA de CV")
@@ -120,16 +114,13 @@ public class GraphQLTests {
                 """;
         var companiesCount = graphQlTester.document(queryCompanyCount)
                 .execute()
-                .path("data.companiasCount[*]")
-                .matchesJson(""" 
-                        [
-                        ]
-                        """);
+                .path("companiasCount")
+                .entity(Long.class)
+                .get();
 
-        //assertThat(companiesCount.size()).isEqualTo(3);
-        /* */
+        assertThat(companiesCount).isEqualTo(1L);
+
         /* Query all companies */
-        /*
         String queryCompanies = """
                 query {
                   companias(nombre_not_contains:"ACME")  {
@@ -139,171 +130,83 @@ public class GraphQLTests {
                 """;
         var companies = graphQlTester.document(queryCompanies)
                 .execute()
-                .path("data.companias[*]")
+                .path("companias")
                 .entityList(Compania.class)
                 .get();
-                //.matchesJson("""
-                //        [
-                  //      ]
-                  //      """);
-        System.out.println(">>>>> FIN de pruebas:" + companies.size());
-        /* Query all estados */
-        String addQuery = """
-                mutation {
-                    createEstado (nombre: "CDMX2", pais:"MX") {
-                      nombre
-                      pais
-                    }
-                }
-                """;
 
-        System.out.println(">>>>>> Estados:" + estadoRepository.count());
-        graphQlTester.document(addQuery)
-                .execute()
-                .path("");
-                //   .hasValue()
-                //   .entity(Estado.class)
-                //   .get();
-                //.matchesJson("""
-                //       { "nombre" : "CDMX2",
-                //         "pais": "MX"
-                //       }
-                //   """);
+        assertThat(companies.size()).isEqualTo(6L);
 
-        System.out.println(">>>>>> Estados:" + estadoRepository.count());
+        /* Query all personas */
+        String personasCountQuery = """
+                                query {
+                                    personasCount
+                                }
+                                """;
+
+        var personasCount = graphQlTester.document(personasCountQuery)
+                                        .execute()
+                                        .path("personasCount")
+                                        .entity(Long.class)
+                                        .get();
+
+        assertThat(personasCount).isEqualTo(2L);
+
         String queryEstados = """
-                query {
-                  estadoes(nombre:"CDMX")  {
-                    nombre                  
-                  }
-                }
-                """;
-        graphQlTester.document(queryEstados)
-                     .execute()
-                     .path("estadoes")
-                  //   .hasValue()
-             //   .entityList(Estado.class)
-             //   .get();
-                    .matchesJson("""
-                       [ 
-                       { "nombre" : "CDMX" }
-                       ]
-                    """);
+                                query {
+                                  personae(nombre:"Alejandro")  {
+                                    apellidoPaterno                  
+                                  }
+                                }
+                                """;
+        var personas = graphQlTester.document(queryEstados)
+                                 .execute()
+                                 .path("personae")
+                                 .entityList(Persona.class)
+                                 .get();
 
-        // assertThat(companies.size()).isEqualTo(7);
+        assertThat(personas.size()).isEqualTo(1L);
     }
 
     /**
-     * Validates the cache-service that reads a single rate
-     *
+     * Adds a new person
+     */
     @Test
-    void findByName() {
-        /* System rate by its name * /
-        String querySystemRate = """
-                    query getSysRate {
-                      systemRate(name: "MXN-DLR") {
-                           name
-                           rate
-                      }
-                    }
-                """;
-        SystemRate systemRate = graphQlTester.document(querySystemRate)
-                .execute()
-                .path("data.systemRate")
-                .entity(SystemRate.class)
-                .get();
-
-        assertThat(systemRate).isNotNull();
-    }
-
-    /**
-     * Adds a new system date from system-ui
-     *
-     * Examples of json for LocalDate, TimeZone and Timestamp:
-     * - { date: "1996-03-15" }
-     * - objects: [{ time: "17:30:15+05:30" }]
-     * - objects: [{ created_at: "2016-07-20T17:30:15+05:30" }]
-     *
-    @Test
-    void addSystemDate() {
-        String mutationSystemDate = """
-                    mutation addSysDate {
-                      addSystemDate(systemDateInput: { name: FESTIVO day: "2023-08-08" userModify: "TEST" } ) {
-                            id
-                            name
-                            day
+    void addPersona() {
+        String mutationPersona = """
+                    mutation add {
+                      createPersona(
+                                            nombre: "Test" 
+                                            apellidoPaterno: "Test Perez"                                                                  
+                                            apellidoMaterno: "Test Rodriguez" 
+                                            fechaNacimiento: "1960-11-26" 
+                                            genero: "MASCULINO" 
+                                            estadoCivil: "SOLTERO"
+                                            usuarioModificacion: "TEST"
+                                            fechaModificacion: "2013-11-30"
+                                            activo: true
+                                            idPersona: 0                                   
+                                    ) {
+                            nombre
+                            apellidoPaterno
+                            apellidoMaterno
+                            fechaNacimiento
+                            genero
+                            estadoCivil
+                            usuarioModificacion
+                            fechaModificacion
+                            activo
+                            idPersona
                         }
                     }
                 """;
-        SystemDate systemDate = graphQlTester.document(mutationSystemDate)
-                .execute()
-                .path("data.addSystemDate")
-                .entity(SystemDate.class)
-                .get();
+        var newPersona = graphQlTester.document(mutationPersona)
+                                    .execute()
+                                    .path("createPersona")
+                                    .entity(Persona.class)
+                                    .get();
 
-        assertThat(systemDate).isNotNull();
-        assertThat(systemDate.getId()).isNotNull();
+        assertThat(newPersona).isNotNull();
+        assertThat(newPersona.getIdPersona()).isEqualTo(0L);
     }
-
-    /**
-     * Adds a new system rate from system-ui
-     *
-     * Examples of json for BigDecimal
-     * - objects: [{ total: 200 }]
-     * - objects: [{ amount: 30.45 }]
-     *
-    @Test
-    void addSystemRate() {
-        String mutationSystemRate = """
-                    mutation addSysRate {
-                      addSystemRate(systemRateInput: { name: "MXN-EUR" rate: 20.45 userModify: "TEST"} ) {
-                            id
-                            name
-                            rate
-                        }
-                    }
-                """;
-        SystemRate systemRate = graphQlTester.document(mutationSystemRate)
-                .execute()
-                .path("data.addSystemRate")
-                .entity(SystemRate.class)
-                .get();
-
-        assertThat(systemRate).isNotNull();
-        assertThat(systemRate.getId()).isNotNull();
-    }
-
-    /**
-     * Updates a document Type
-     *
-     *
-    @Test
-    void updateDocumentType() {
-        DocumentType documentType = documentTypeRepository.findDocumentTypeByName("Visa");
-
-        assertThat(documentType).isNotNull();
-
-        String mutationDocumentType = """
-                    mutation updDocType {
-                      updateDocumentType(documentTypeInput: { id:
-               """ + "\"" + documentType.getId() + "\"" + """
-                    name: "Visa" expiration: "2m" userModify: "TEST"} ) {
-                            id
-                            name
-                            expiration
-                        }
-                    }
-                """;
-        DocumentType mutatedDocumentType = graphQlTester.document(mutationDocumentType)
-                .execute()
-                .path("data.updateDocumentType")
-                .entity(DocumentType.class)
-                .get();
-
-        assertThat(mutatedDocumentType).isNotNull();
-        assertThat(mutatedDocumentType.getId()).isNotNull();
-        assertThat(mutatedDocumentType.getExpiration()).isEqualTo("2m");
-    }
-    */
 
 }

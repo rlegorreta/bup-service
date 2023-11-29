@@ -31,6 +31,8 @@ import org.springframework.data.neo4j.core.schema.Id;
 import org.springframework.data.neo4j.core.schema.Node;
 import org.springframework.data.neo4j.core.schema.Property;
 
+import java.time.LocalDate;
+
 /**
  * This class is just for the count() method in the repository. So no attributes
  * are declared just the id.
@@ -50,10 +52,18 @@ import org.springframework.data.neo4j.core.schema.Property;
 public class Persona {
     @Id
     @GeneratedValue
-    String id;
+    Long id;
 
+    public String nombre;
     @Property(name = "apellidoPaterno")
     public String apellidoPaterno;
+    public String apellidoMaterno;
+    public LocalDate fechaNacimiento;
+    public String genero;
+    public String estadoCivil;
+    public String usuarioModificacion;
+    public LocalDate fechaModificacion;
+    public Integer idPersona;
 
     @Property(name = "activo")
     public Boolean activo;

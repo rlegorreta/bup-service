@@ -47,7 +47,7 @@ import org.springframework.data.neo4j.core.schema.Property;
 public class Compania {
     @Id
     @GeneratedValue
-    String id;
+    Long id;
 
     @Property(name = "nombre")
     public String nombre;

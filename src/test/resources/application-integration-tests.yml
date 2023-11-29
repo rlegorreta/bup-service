@@ -15,7 +15,7 @@ ailegorreta:
 
 logging:
   level:
-    root: DEBUG
+    root: INFO
     graphql: DEBUG
     com:
       acme:

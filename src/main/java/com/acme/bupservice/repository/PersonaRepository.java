@@ -34,7 +34,7 @@ import java.util.List;
  * @author: rlh
  * @date: November 2023
  */
-public interface PersonaRepository extends Neo4jRepository<Persona, String> {
+public interface PersonaRepository extends Neo4jRepository<Persona, Long> {
     List<Persona> findPersonasByApellidoPaternoContainingAndActivo(String apellidoPAterno, Boolean activo);
 
     List<Persona> findPersonasByApellidoPaternoContaining(String apellidoPaterno);

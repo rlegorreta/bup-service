@@ -36,7 +36,7 @@ import java.util.List;
  * @author: rlh
  * @date: November 2023
  */
-public interface CompaniaRepository extends Neo4jRepository<Compania, String> {
+public interface CompaniaRepository extends Neo4jRepository<Compania, Long> {
     List<Compania> findCompaniaByNombreContaining(String nombre);
 
 }
