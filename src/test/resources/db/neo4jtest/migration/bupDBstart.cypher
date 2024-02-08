@@ -223,4 +223,5 @@ MATCH (acmet:Compania {nombre:'ACME Tienda SA de CV'}), (act2:Cuenta {clabe:'013
 MATCH (acmeB:Compania {nombre:'ACME Bodega SA de CV'}), (act2:Cuenta {clabe:'0134545584500000676'}) MERGE (acmeb)-[r:CUENTA]-(act2) RETURN r;
 MATCH (ixe:Compania {nombre:'IXE BANCO'}), (act2:Cuenta {clabe:'0134545584500000676'}) MERGE (ixe)-[r:CUENTA]-(act2) RETURN r;
 MATCH (intercam:Compania {nombre:'INTERCAM BANCO'}), (act2:Cuenta {clabe:'0134545584500000676'}) MERGE (intercam)-[r:CUENTA]-(act2) RETURN r;
+
 /* End */

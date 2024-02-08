@@ -67,11 +67,21 @@ type Telefono {
     personas: [Persona] @relation(name:"TELEFONO", direction:IN)
 }
 
+type Rfc {
+    _id: ID
+    rfc: String!
+    companias: [Compania] @relation(name:"RFC", direction:IN)
+    personas: [Persona] @relation(name:"RFC", direction:IN)
+}
+
 type Compania {
     _id: ID!
     nombre: String!
     usuarioModificacion: String
     fechaModificacion: LocalDateTime
+    padre: Boolean!
+    activo: Boolean!
+    idPersona:Int
     sector: Sector @relation(name:"PERTENECE", direction:OUT)
     areas: [Area] @relation(name:"CONTIENE", direction:OUT)
     telefonos: [Telefono] @relation(name:"TELEFONO", direction:OUT)
@@ -80,6 +90,7 @@ type Compania {
     subsidiarias: [Compania] @relation(name:"SUBSIDIARIA", direction:IN)
     proveedores: [Proveedor]
     proveedorDel: Compania @relation(name:"PROVEEDOR", direction:OUT)
+    rfc: Rfc @relation(name:"RFC", direction:OUT)
 }
 
 type Trabaja @relation(name:"TRABAJA", direction: OUT) {
@@ -136,6 +147,8 @@ type Persona {
     emails: [EmailAsignado]
     emailDel: Email @relation(name:"EMAIL", direction:OUT)
     direcciones: [Direccion] @relation(name:"DIRECCION", direction:OUT)
+    rfc: Rfc @relation(name:"RFC", direction:OUT)
+    curp: String
 }
 
 type Mutation {

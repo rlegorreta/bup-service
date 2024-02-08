@@ -55,7 +55,7 @@ We can summarize the operations as follows:
 Future versions of this microservice will include many other CRM and BUP functionality. This is just an initial 
 POC version for the ACME company.
 
-Other future version will include LLM AI functionality.
+For LLM AI functionality, please se the `chat-gpt` microservice in the GenAI section.
 
 note: `bup-service` microservice is a protected resource so all REST services need a valid JWT produced
 token by Oauth2  microservice. For develop purpose the developer can eliminate this restriction 
@@ -98,7 +98,7 @@ https://github.com/spring-projects/spring-graphql
 
 ### bupDB version
 
-Because for future versions we want to use AI LLM queries, que prefer to use the newest NEO4j version
+For Gen AI we also can use AI LLM queries, que prefer to use the newest NEO4j version
 (i.e. 5.X) so we create another image from `iam-service` Neo4j database and therefor keep the upgrades
 separate.
 
@@ -227,7 +227,7 @@ volumes:
 
 ### Create the image manually
 
-```
+```bash
 ./gradlew bootBuildImage
 ```
 

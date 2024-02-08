@@ -67,4 +67,5 @@ public class Persona {
 
     @Property(name = "activo")
     public Boolean activo;
+    public String curp;
 }

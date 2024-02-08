@@ -13,14 +13,14 @@
 /* =====     C O M P A N I E S  LMASS & ACME         ===== */
 /* ======================================================= */
 MERGE (lmass:Compania {nombre:'LMASS Desarrolladores SA de CV', padre:true, negocio:'NA', usuarioModificacion:'START', fechaModificacion:localdatetime(), activo:true, idPersona:0})
-MERGE (aiml:Compania {nombre:'AI/ML SA de CV', padre:false, negocio:'NA', usuarioModificacion:'START', fechaModificacion:localdatetime(), activo:true, idPersona:0})
-MERGE (acme:Compania {nombre:'ACME SA de CV', padre:true, negocio:'INDUSTRIAL', usuarioModificacion:'START', fechaModificacion:localdatetime(), activo:true, idPersona:1})
-MERGE (acmet:Compania {nombre:'ACME Tienda SA de CV', padre:false, negocio:'INDUSTRIAL', usuarioModificacion:'START', fechaModificacion:localdatetime(), activo:true, idPersona:2})
-MERGE (acmeb:Compania {nombre:'ACME Bodega SA de CV', padre:false, negocio:'INDUSTRIAL', usuarioModificacion:'START', fechaModificacion:localdatetime(), activo:true, idPersona:3})
-MERGE (prov1:Compania {nombre:'AMAZON SA DE CV', padre:true, negocio:'INDUSTRIAL', usuarioModificacion:'START', fechaModificacion:localdatetime(), activo:true, idPersona:4})
-MERGE (prov2:Compania {nombre:'ABOGADOS SC', padre:true, negocio:'PARTICULAR', usuarioModificacion:'START', fechaModificacion:localdatetime(), activo:true, idPersona:5})
-MERGE (ixe:Compania {nombre:'IXE BANCO', padre:true, negocio:'FINANCIERA', usuarioModificacion:'START', fechaModificacion:localdatetime(), activo:true, idPersona:6})
-MERGE (intercam:Compania {nombre:'INTERCAM BANCO', padre:true, negocio:'FINANCIERA', usuarioModificacion:'START', fechaModificacion:localdatetime(), activo:true, idPersona:7})
+MERGE (aiml:Compania {nombre:'AI/ML SA de CV', padre:false, negocio:'NA', usuarioModificacion:'START', fechaModificacion:localdatetime(), activo:true, idPersona:1})
+MERGE (acme:Compania {nombre:'ACME SA de CV', padre:true, negocio:'INDUSTRIAL', usuarioModificacion:'START', fechaModificacion:localdatetime(), activo:true, idPersona:2})
+MERGE (acmet:Compania {nombre:'ACME Tienda SA de CV', padre:false, negocio:'INDUSTRIAL', usuarioModificacion:'START', fechaModificacion:localdatetime(), activo:true, idPersona:3})
+MERGE (acmeb:Compania {nombre:'ACME Bodega SA de CV', padre:false, negocio:'INDUSTRIAL', usuarioModificacion:'START', fechaModificacion:localdatetime(), activo:true, idPersona:4})
+MERGE (prov1:Compania {nombre:'AMAZON SA DE CV', padre:true, negocio:'INDUSTRIAL', usuarioModificacion:'START', fechaModificacion:localdatetime(), activo:true, idPersona:5})
+MERGE (prov2:Compania {nombre:'ABOGADOS SC', padre:true, negocio:'PARTICULAR', usuarioModificacion:'START', fechaModificacion:localdatetime(), activo:true, idPersona:6})
+MERGE (ixe:Compania {nombre:'IXE BANCO', padre:true, negocio:'FINANCIERA', usuarioModificacion:'START', fechaModificacion:localdatetime(), activo:true, idPersona:7})
+MERGE (intercam:Compania {nombre:'INTERCAM BANCO', padre:true, negocio:'FINANCIERA', usuarioModificacion:'START', fechaModificacion:localdatetime(), activo:true, idPersona:8})
 
 /* =====     S U B S I D I A R Y E S    ===== */
 MATCH (aiml:Compania {nombre:'AI/ML SA de CV'}), (lmass:Compania {nombre:'LMASS Desarrolladores SA de CV'}) MERGE (aiml)-[:SUBSIDIARIA]->(lmass);

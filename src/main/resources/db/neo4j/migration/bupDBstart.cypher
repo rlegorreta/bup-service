@@ -3,7 +3,7 @@
 /* All data from the start.cypher is added plus some developer data needed  */
 /* for testing purposes:                                                    */
 /*                                                                          */
-/* Date: November 2023                                                      */
+/* Date: February 2024                                                      */
 /* ======================================================================== */
 
 MATCH (s: Sector) DETACH DELETE s;
@@ -47,23 +47,23 @@ MERGE (area6:Area {nombre:'Inventario'})
 
 
 /* =====     P E R S O N S          ===== */
-MERGE (pers1:Persona {nombre:'Juan', apellidoPaterno:'Perez', apellidoMaterno:'Hernández',fechaNacimiento:date(), genero:'MASCULINO', estadoCivil: 'CASADO', usuarioModificacion:'TEST', fechaModificacion:localdatetime(), activo:true, idPersona:1000})
-MERGE (pers2:Persona {nombre:'Alejandro', apellidoPaterno:'Rodriguez', apellidoMaterno:'Sains', fechaNacimiento:date(), genero:'MASCULINO', estadoCivil: 'SOLTERO', usuarioModificacion:'TEST', fechaModificacion:localdatetime(), activo:false, idPersona:1001})
-MERGE (pers3:Persona {nombre:'Patricio', apellidoPaterno:'Garcia', apellidoMaterno:'Cano', fechaNacimiento:date(), genero:'MASCULINO', estadoCivil: 'CASADO', usuarioModificacion:'TEST', fechaModificacion:localdatetime(), activo:true, idPersona:1002})
-MERGE (pers4:Persona {nombre:'Marisa', apellidoPaterno:'Gomez', apellidoMaterno:'Lopez', fechaNacimiento:date(), genero:'FEMENINO', estadoCivil: 'CASADO', usuarioModificacion:'TEST', fechaModificacion:localdatetime(), activo:true, idPersona:1003})
-MERGE (pers5:Persona {nombre:'Roberto', apellidoPaterno:'Sanchez', apellidoMaterno:'Cortina', fechaNacimiento:date(), genero:'MASCULINO', estadoCivil: 'SOLTERO', usuarioModificacion:'TEST', fechaModificacion:localdatetime(), activo:true, idPersona:1004})
-MERGE (pers6:Persona {nombre:'Isabel', apellidoPaterno:'Ahumada', apellidoMaterno:'Madero', fechaNacimiento:date(), genero:'OTRO', estadoCivil: 'SOLTERO', usuarioModificacion:'TEST', fechaModificacion:localdatetime(), activo:true, idPersona:1005})
-MERGE (pers7:Persona {nombre:'Diego', apellidoPaterno:'Balli', apellidoMaterno:'Armella', fechaNacimiento:date(), genero:'MASCULINO', estadoCivil: 'VIUDO', usuarioModificacion:'TEST', fechaModificacion:localdatetime(), activo:true, idPersona:1006})
-MERGE (pers8:Persona {nombre:'Ana Paula', apellidoPaterno:'Martinez', apellidoMaterno:'Torres', fechaNacimiento:date(), genero:'FEMENINO', estadoCivil: 'CASADO', usuarioModificacion:'TEST', fechaModificacion:localdatetime(), activo:true, idPersona:1007})
-MERGE (pers9:Persona {nombre:'Jesus', apellidoPaterno:'Torres', apellidoMaterno:'Beckmann', fechaNacimiento:date(), genero:'MASCULINO', estadoCivil: 'SOLTERO', usuarioModificacion:'TEST', fechaModificacion:localdatetime(), activo:true, idPersona:1008})
-MERGE (pers10:Persona {nombre:'Carlos', apellidoPaterno:'Sandoval', apellidoMaterno:'Vilchis', fechaNacimiento:date(), genero:'MASCULINO', estadoCivil: 'SOLTERO', usuarioModificacion:'TEST', fechaModificacion:localdatetime(), activo:true, idPersona:1009})
+MERGE (pers1:Persona {nombre:'Juan', apellidoPaterno:'Perez', apellidoMaterno:'Alvarez',fechaNacimiento:date(), genero:'MASCULINO', estadoCivil: 'CASADO', curp:'PEAJ8011127X3UUV', usuarioModificacion:'TEST', fechaModificacion:localdatetime(), activo:true, idPersona:500})
+MERGE (pers2:Persona {nombre:'Alejandro', apellidoPaterno:'Rodriguez', apellidoMaterno:'Sains', fechaNacimiento:date(), genero:'MASCULINO', estadoCivil: 'SOLTERO', curp:'ROSA8103038X1UUV', usuarioModificacion:'TEST', fechaModificacion:localdatetime(), activo:false, idPersona:501})
+MERGE (pers3:Persona {nombre:'Patricio', apellidoPaterno:'Garcia', apellidoMaterno:'Cano', fechaNacimiento:date(), genero:'MASCULINO', estadoCivil: 'CASADO', curp:'GACP8206067X6UUV', usuarioModificacion:'TEST', fechaModificacion:localdatetime(), activo:true, idPersona:502})
+MERGE (pers4:Persona {nombre:'Marisa', apellidoPaterno:'Gomez', apellidoMaterno:'Lopez', fechaNacimiento:date(), genero:'FEMENINO', estadoCivil: 'CASADO',  curp:'GOLM9003039X1UUV', usuarioModificacion:'TEST', fechaModificacion:localdatetime(), activo:true, idPersona:503})
+MERGE (pers5:Persona {nombre:'Roberto', apellidoPaterno:'Sanchez', apellidoMaterno:'Cortina', fechaNacimiento:date(), genero:'MASCULINO', estadoCivil: 'SOLTERO', curp:'SACR6404098X7UUV',usuarioModificacion:'TEST', fechaModificacion:localdatetime(), activo:true, idPersona:504})
+MERGE (pers6:Persona {nombre:'Isabel', apellidoPaterno:'Ahumada', apellidoMaterno:'Madero', fechaNacimiento:date(), genero:'OTRO', estadoCivil: 'SOLTERO', curp:'AHMI9011128X1UUV', usuarioModificacion:'TEST', fechaModificacion:localdatetime(), activo:true, idPersona:505})
+MERGE (pers7:Persona {nombre:'Diego', apellidoPaterno:'Abad', apellidoMaterno:'Atmann', fechaNacimiento:date(), genero:'MASCULINO', estadoCivil: 'VIUDO', curp:'ABAD9201089X7UUV', usuarioModificacion:'TEST', fechaModificacion:localdatetime(), activo:true, idPersona:506})
+MERGE (pers8:Persona {nombre:'Ana Paula', apellidoPaterno:'Martinez', apellidoMaterno:'Torres', fechaNacimiento:date(), genero:'FEMENINO', estadoCivil: 'CASADO', curp:'MATA9003089X3UUV', usuarioModificacion:'TEST', fechaModificacion:localdatetime(), activo:true, idPersona:507})
+MERGE (pers9:Persona {nombre:'Jesus', apellidoPaterno:'Torres', apellidoMaterno:'Beckmann', fechaNacimiento:date(), genero:'MASCULINO', estadoCivil: 'SOLTERO', curp:'TOBJ8808097X4UUV', usuarioModificacion:'TEST', fechaModificacion:localdatetime(), activo:true, idPersona:508})
+MERGE (pers10:Persona {nombre:'Carlos', apellidoPaterno:'Sandoval', apellidoMaterno:'Vilchis', fechaNacimiento:date(), genero:'MASCULINO', estadoCivil: 'SOLTERO', curp:'SAVC8909109X1UUV', usuarioModificacion:'TEST', fechaModificacion:localdatetime(), activo:true, idPersona:509})
 
 
 /* =====     P E R S O N S   W I T H  A R E A S     ===== */
 /* note: can be wrong this script since we estimated the idCompania */
-MATCH (pers1:Persona),(area1:Area) WHERE pers1.nombre = 'Juan' AND area1.nombre = 'Direccion' MERGE (pers1)-[:DIRIGE {idCompania:2, nombreCompania:'ACME Bodega SA de CV'}]-(area1)
-MATCH (pers2:Persona),(area2:Area) WHERE pers2.nombre = 'Alejandro' AND area2.nombre = 'Contabilidad' MERGE (pers2)-[:DIRIGE {idCompania:2, nombreCompania:'ACME Bodega SA de CV'}]-(area2)
-MATCH (pers7:Persona),(area3:Area) WHERE pers7.nombre = 'Diego' AND area3.nombre = 'Sistemas' MERGE (pers7)-[:DIRIGE {idCompania:2, nombreCompania:'ACME Bodega SA de CV'}]-(area3)
+MATCH (pers1:Persona),(area1:Area) WHERE pers1.nombre = 'Juan' AND area1.nombre = 'Direccion' MERGE (pers1)-[:DIRIGE {idPersona:2, nombreCompania:'ACME Bodega SA de CV'}]-(area1)
+MATCH (pers2:Persona),(area2:Area) WHERE pers2.nombre = 'Alejandro' AND area2.nombre = 'Contabilidad' MERGE (pers2)-[:DIRIGE {idPersona:2, nombreCompania:'ACME Bodega SA de CV'}]-(area2)
+MATCH (pers7:Persona),(area3:Area) WHERE pers7.nombre = 'Diego' AND area3.nombre = 'Sistemas' MERGE (pers7)-[:DIRIGE {idPersona:2, nombreCompania:'ACME Bodega SA de CV'}]-(area3)
 
 /* =====     P E R S O N S   W I T H  P E R S O N S     ===== */
 MATCH (pers1:Persona),(pers2:Persona) WHERE pers1.nombre = 'Juan' AND pers2.nombre = 'Alejandro' MERGE (pers1)-[:RELACION{tipo:'Parentesco', nombre:'primo'}]-(pers2)
@@ -75,38 +75,38 @@ MATCH (pers8:Persona),(pers9:Persona) WHERE pers8.nombre = 'Ana Paula' AND pers9
 MATCH (pers9:Persona),(pers10:Persona) WHERE pers9.nombre = 'Jesus' AND pers10.nombre = 'Carlos' MERGE (pers9)-[:RELACION{tipo:'Amigo', nombre:'Muy amigo'}]-(pers10)
 
 /* =====     R F C   ===== */
-MERGE (rfc1:Rfc {rfc:'PROVW6011267X2', curp:'PROVW6011267X2UV', usuarioModificacion:'TEST', fechaModificacion:localdatetime()})
-MERGE (rfc2:Rfc {rfc:'ABOGX6011267X2', curp:'ABOGX6011267X2UV', usuarioModificacion:'TEST', fechaModificacion:localdatetime()})
-MERGE (rfc3:Rfc {rfc:'IXEGG8011267X2', curp:'IXEGG8011267X2UV', usuarioModificacion:'TEST', fechaModificacion:localdatetime()})
-MERGE (rfc4:Rfc {rfc:'INTER6011267X2', curp:'INTER6011267X2UV', usuarioModificacion:'TEST', fechaModificacion:localdatetime()})
-MERGE (rfc5:Rfc {rfc:'ACME651130UVX', curp:'ACME651130UVXUV', usuarioModificacion:'TEST', fechaModificacion:localdatetime()})
-MERGE (rfc6:Rfc {rfc:'ACME701130UVX', curp:'ACME701130UVXUV', usuarioModificacion:'TEST', fechaModificacion:localdatetime()})
-MERGE (rfc7:Rfc {rfc:'ACME751130UVX', curp:'ACME751130UVXUV', usuarioModificacion:'TEST', fechaModificacion:localdatetime()})
-MERGE (rfc8:Rfc {rfc:'LEHR6011267X2', curp:'LEHR6011267X2UV', usuarioModificacion:'TEST', fechaModificacion:localdatetime()})
-MERGE (rfc9:Rfc {rfc:'MIAS6211267X2', curp:'MIAS6211267X2UV', usuarioModificacion:'TEST', fechaModificacion:localdatetime()})
-MERGE (rfc10:Rfc {rfc:'SASS6211267X2', curp:'SASS6211267X2UV', usuarioModificacion:'TEST', fechaModificacion:localdatetime()})
-MERGE (rfc11:Rfc {rfc:'LLHE6011267X2', curp:'LLHE601126XXXUV', usuarioModificacion:'TEST', fechaModificacion:localdatetime()})
-MERGE (rfc12:Rfc {rfc:'LEHR6011267X2', curp:'LEHR6011277X2UV', usuarioModificacion:'TEST', fechaModificacion:localdatetime()})
-MERGE (rfc13:Rfc {rfc:'JDSU6011267X2', curp:'JDSU6011267X2UV', usuarioModificacion:'TEST', fechaModificacion:localdatetime()})
-MERGE (rfc14:Rfc {rfc:'RMMM6011267X2', curp:'RMMM6011267X2UV', usuarioModificacion:'TEST', fechaModificacion:localdatetime()})
-MERGE (rfc15:Rfc {rfc:'LEFF6011267X2', curp:'LEFF6011267X2UV', usuarioModificacion:'TEST', fechaModificacion:localdatetime()})
-MERGE (rfc16:Rfc {rfc:'RPJD951128WX2', curp:'RPJD951128WX2UV', usuarioModificacion:'TEST', fechaModificacion:localdatetime()})
-
+MERGE (rfc1:Rfc {rfc:'PEAJ8011127X3'})
+MERGE (rfc2:Rfc {rfc:'ROSA8103038X1'})
+MERGE (rfc3:Rfc {rfc:'GACP8206067X6'})
+MERGE (rfc4:Rfc {rfc:'GOLM9003039X1'})
+MERGE (rfc5:Rfc {rfc:'SACR6404098X7'})
+MERGE (rfc6:Rfc {rfc:'AHMI9011128X1'})
+MERGE (rfc7:Rfc {rfc:'ABAD9201089X7'})
+MERGE (rfc8:Rfc {rfc:'MATA9003089X3'})
+MERGE (rfc9:Rfc {rfc:'TOBJ8808097X4'})
+MERGE (rfc10:Rfc {rfc:'SAVC8909109X1'})
+MERGE (rfc11:Rfc {rfc:'LLHE6011267X2'})
+MERGE (rfc12:Rfc {rfc:'LEHR6011267P2'})
+MERGE (rfc13:Rfc {rfc:'JDSU6011267X2'})
+MERGE (rfc14:Rfc {rfc:'RMMM6011267X2'})
+MERGE (rfc15:Rfc {rfc:'LEFF6011267X2'})
+MERGE (rfc16:Rfc {rfc:'RPJD951128WX2'})
+MERGE (rfc17:Rfc {rfc:'RPJD9511287X2'})
 
 /* =====    P E R S O N S   W I T H   R F C   ===== */
-MATCH (pers1:Persona),(rfc8:Rfc) WHERE pers1.nombre = 'Juan' AND rfc8.rfc = 'PROVW6011267X2' MERGE (pers1)-[:RFC]-(rfc8)
-MATCH (pers2:Persona),(rfc9:Rfc) WHERE pers2.nombre = 'Alejandro' AND rfc9.rfc = 'MIAS6211267X2' MERGE (pers2)-[:RFC]-(rfc9)
-MATCH (pers3:Persona),(rfc10:Rfc) WHERE pers3.nombre = 'Patricio' AND rfc10.rfc = 'SASS6211267X2' MERGE (pers3)-[:RFC]-(rfc10)
-MATCH (pers4:Persona),(rfc11:Rfc) WHERE pers4.nombre = 'Marisa' AND rfc11.rfc = 'LLHE601126XXXUV' MERGE (pers4)-[:RFC]-(rfc11)
-MATCH (pers5:Persona),(rfc12:Rfc) WHERE pers5.nombre = 'Roberto' AND rfc12.rfc = 'LEHR6011267X2' MERGE (pers5)-[:RFC]-(rfc12)
-MATCH (pers6:Persona),(rfc13:Rfc) WHERE pers6.nombre = 'Isabel' AND rfc13.rfc = 'JDSU6011267X2' MERGE (pers6)-[:RFC]-(rfc13)
-MATCH (pers7:Persona),(rfc14:Rfc) WHERE pers7.nombre = 'Diego' AND rfc14.rfc = 'RMMM6011267X2' MERGE (pers7)-[:RFC]-(rfc14)
-MATCH (pers8:Persona),(rfc15:Rfc) WHERE pers8.nombre = 'Ana Paula' AND rfc15.rfc = 'LEFF6011267X2UV' MERGE (pers8)-[:RFC]-(rfc15)
-MATCH (pers9:Persona),(rfc16:Rfc) WHERE pers9.nombre = 'Jesus' AND rfc16.rfc = 'RPJD951128WX2UV' MERGE (pers9)-[:RFC]-(rfc16)
-MATCH (pers10:Persona),(rfc16:Rfc) WHERE pers10.nombre = 'Carlos' AND rfc16.rfc = 'RPJD951128WX2UV' MERGE (pers16)-[:RFC]-(rfc16)
+MATCH (pers1:Persona),(rfc1:Rfc) WHERE pers1.nombre = 'Juan' AND rfc1.rfc = 'PEAJ8011127X3' MERGE (pers1)-[:RFC]-(rfc1)
+MATCH (pers2:Persona),(rfc2:Rfc) WHERE pers2.nombre = 'Alejandro' AND rfc2.rfc = 'ROSA8103038X1' MERGE (pers2)-[:RFC]-(rfc2)
+MATCH (pers3:Persona),(rfc3:Rfc) WHERE pers3.nombre = 'Patricio' AND rfc3.rfc = 'GACP8206067X6' MERGE (pers3)-[:RFC]-(rfc3)
+MATCH (pers4:Persona),(rfc4:Rfc) WHERE pers4.nombre = 'Marisa' AND rfc4.rfc = 'GOLM9003039X1' MERGE (pers4)-[:RFC]-(rfc4)
+MATCH (pers5:Persona),(rfc5:Rfc) WHERE pers5.nombre = 'Roberto' AND rfc5.rfc = 'SACR6404098X7' MERGE (pers5)-[:RFC]-(rfc5)
+MATCH (pers6:Persona),(rfc6:Rfc) WHERE pers6.nombre = 'Isabel' AND rfc6.rfc = 'AHMI9011128X1' MERGE (pers6)-[:RFC]-(rfc6)
+MATCH (pers7:Persona),(rfc7:Rfc) WHERE pers7.nombre = 'Diego' AND rfc7.rfc = 'ABAD9201089X7' MERGE (pers7)-[:RFC]-(rfc7)
+MATCH (pers8:Persona),(rfc8:Rfc) WHERE pers8.nombre = 'Ana Paula' AND rfc8.rfc = 'MATA9003089X3' MERGE (pers8)-[:RFC]-(rfc8)
+MATCH (pers9:Persona),(rfc9:Rfc) WHERE pers9.nombre = 'Jesus' AND rfc9.rfc = 'TOBJ8808097X4' MERGE (pers9)-[:RFC]-(rfc9)
+MATCH (pers10:Persona),(rfc10:Rfc) WHERE pers10.nombre = 'Carlos' AND rfc10.rfc = 'SAVC8909109X1' MERGE (pers16)-[:RFC]-(rfc10)
 
 /* =====     T E L E P H O N E  N U M B E R S   ===== */
-MERGE (tel1:Telefono {numero:'5555966575', ciudad:'CDMX', tipo:'OFICINA'})
+MERGE (tel1:Telefono {numero:'5591495001', ciudad:'CDMX', tipo:'OFICINA'})
 MERGE (tel2:Telefono {numero:'5555962188', ciudad:'CDMX', tipo:'OFICINA'})
 MERGE (tel3:Telefono {numero:'5555703476', ciudad:'CDMX', tipo:'OFICINA'})
 MERGE (tel4:Telefono {numero:'5555681423', ciudad:'CDMX', tipo:'OFICINA'})
@@ -256,12 +256,88 @@ MERGE (pais4:Pais {nombre:'España'})
 MERGE (pais5:Pais {nombre:'Alemania'})
 
 /* =====   S T A T E S  ===== */
-MERGE (edo1:Estado {nombre:'Estado de Mexico', pais:'México'})
-MERGE (edo2:Estado {nombre:'CDMX', pais:'México'})
-MERGE (edo3:Estado {nombre:'Morelos', pais:'México'})
-MERGE (edo4:Estado {nombre:'Guerrero', pais:'México'})
-MERGE (edo5:Estado {nombre:'Nuevo Leon', pais:'México'})
-MERGE (edo6:Estado {nombre:'Texas', pais:'USA'})
+MERGE (edo1:Estado {nombre:'Aguascalientes', pais:'México'})
+MERGE (edo2:Estado {nombre:'Baja California', pais:'México'})
+MERGE (edo3:Estado {nombre:'Baja California Sur', pais:'México'})
+MERGE (edo4:Estado {nombre:'Campeche', pais:'México'})
+MERGE (edo5:Estado {nombre:'Chiapas', pais:'México'})
+MERGE (edo6:Estado {nombre:'Chihuaha', pais:'México'})
+MERGE (edo7:Estado {nombre:'CDMX', pais:'México'})
+MERGE (edo8:Estado {nombre:'Coahuila', pais:'México'})
+MERGE (edo9:Estado {nombre:'Colima', pais:'México'})
+MERGE (edo10:Estado {nombre:'Durango', pais:'México'})
+MERGE (edo11:Estado {nombre:'Estado de México', pais:'México'})
+MERGE (edo12:Estado {nombre:'Guanajuato', pais:'México'})
+MERGE (edo13:Estado {nombre:'Guerrero', pais:'México'})
+MERGE (edo14:Estado {nombre:'Hidalgo', pais:'México'})
+MERGE (edo15:Estado {nombre:'Jalisco', pais:'México'})
+MERGE (edo16:Estado {nombre:'Michoacán', pais:'México'})
+MERGE (edo17:Estado {nombre:'Morelos', pais:'México'})
+MERGE (edo18:Estado {nombre:'Nayarit', pais:'México'})
+MERGE (edo19:Estado {nombre:'Nuevo León', pais:'México'})
+MERGE (edo20:Estado {nombre:'Oaxaca', pais:'México'})
+MERGE (edo21:Estado {nombre:'Puebla', pais:'México'})
+MERGE (edo22:Estado {nombre:'Querétaro', pais:'México'})
+MERGE (edo23:Estado {nombre:'Quintana Roo', pais:'México'})
+MERGE (edo24:Estado {nombre:'San Luis Potosí', pais:'México'})
+MERGE (edo25:Estado {nombre:'Sinaloa', pais:'México'})
+MERGE (edo26:Estado {nombre:'Sonora', pais:'México'})
+MERGE (edo27:Estado {nombre:'Tabasco', pais:'México'})
+MERGE (edo28:Estado {nombre:'Tamaulipas', pais:'México'})
+MERGE (edo29:Estado {nombre:'Tlaxcala', pais:'México'})
+MERGE (edo30:Estado {nombre:'Veracruz', pais:'México'})
+MERGE (edo31:Estado {nombre:'Yucatán', pais:'México'})
+MERGE (edo32:Estado {nombre:'Zacatecas', pais:'México'})
+MERGE (edo100:Estado {nombre:'Alabama', pais:'USA'})
+MERGE (edo101:Estado {nombre:'Alaska', pais:'USA'})
+MERGE (edo102:Estado {nombre:'Arizona', pais:'USA'})
+MERGE (edo103:Estado {nombre:'Arkansas', pais:'USA'})
+MERGE (edo104:Estado {nombre:'California', pais:'USA'})
+MERGE (edo105:Estado {nombre:'Colorado', pais:'USA'})
+MERGE (edo106:Estado {nombre:'Connecticut', pais:'USA'})
+MERGE (edo107:Estado {nombre:'Delaware', pais:'USA'})
+MERGE (edo108:Estado {nombre:'Florida', pais:'USA'})
+MERGE (edo109:Estado {nombre:'Georgia', pais:'USA'})
+MERGE (edo110:Estado {nombre:'Hawai', pais:'USA'})
+MERGE (edo111:Estado {nombre:'Idaho', pais:'USA'})
+MERGE (edo112:Estado {nombre:'Illinois', pais:'USA'})
+MERGE (edo113:Estado {nombre:'Indiana', pais:'USA'})
+MERGE (edo114:Estado {nombre:'Iowa', pais:'USA'})
+MERGE (edo115:Estado {nombre:'Kansas', pais:'USA'})
+MERGE (edo116:Estado {nombre:'Kentucky', pais:'USA'})
+MERGE (edo117:Estado {nombre:'Louisiana', pais:'USA'})
+MERGE (edo118:Estado {nombre:'Maine', pais:'USA'})
+MERGE (edo119:Estado {nombre:'Maryland', pais:'USA'})
+MERGE (edo120:Estado {nombre:'Massachusetts', pais:'USA'})
+MERGE (edo121:Estado {nombre:'Michigan', pais:'USA'})
+MERGE (edo122:Estado {nombre:'Minnesota', pais:'USA'})
+MERGE (edo123:Estado {nombre:'Mississippi', pais:'USA'})
+MERGE (edo124:Estado {nombre:'Missouri', pais:'USA'})
+MERGE (edo125:Estado {nombre:'Montana', pais:'USA'})
+MERGE (edo126:Estado {nombre:'Nebraska', pais:'USA'})
+MERGE (edo127:Estado {nombre:'Nevada', pais:'USA'})
+MERGE (edo128:Estado {nombre:'New Hampshire', pais:'USA'})
+MERGE (edo129:Estado {nombre:'New Jersey', pais:'USA'})
+MERGE (edo130:Estado {nombre:'New Mexico', pais:'USA'})
+MERGE (edo131:Estado {nombre:'New York', pais:'USA'})
+MERGE (edo132:Estado {nombre:'North Carolina', pais:'USA'})
+MERGE (edo133:Estado {nombre:'Month Dakota', pais:'USA'})
+MERGE (edo134:Estado {nombre:'Ohio', pais:'USA'})
+MERGE (edo135:Estado {nombre:'Oklahoma', pais:'USA'})
+MERGE (edo136:Estado {nombre:'Oregon', pais:'USA'})
+MERGE (edo137:Estado {nombre:'Pennsylvania', pais:'USA'})
+MERGE (edo138:Estado {nombre:'Rhode Island', pais:'USA'})
+MERGE (edo139:Estado {nombre:'South Carolina', pais:'USA'})
+MERGE (edo140:Estado {nombre:'South Dakota', pais:'USA'})
+MERGE (edo141:Estado {nombre:'Tennessee', pais:'USA'})
+MERGE (edo142:Estado {nombre:'Texas', pais:'USA'})
+MERGE (edo143:Estado {nombre:'Utah', pais:'USA'})
+MERGE (edo144:Estado {nombre:'Vermont', pais:'USA'})
+MERGE (edo145:Estado {nombre:'Virginia', pais:'USA'})
+MERGE (edo146:Estado {nombre:'Washington', pais:'USA'})
+MERGE (edo147:Estado {nombre:'West Virginia', pais:'USA'})
+MERGE (edo148:Estado {nombre:'Wisconsin', pais:'USA'})
+MERGE (edo149:Estado {nombre:'Wyoming', pais:'USA'})
 
 /* =====     Z I P  C O D E S  W I T H  S T A T E S  ===== */
 MATCH (zip1:Codigo),(edo1:Estado) WHERE zip1.cp = 11000 AND edo1.nombre = 'Estado de Mexico' MERGE (zip1)-[:PERTENECE]-(edo1)
@@ -333,7 +409,6 @@ MATCH (adr20:Direccion),(mun3:Municipio) WHERE adr20.calle = 'Romerito 560' AND 
 MATCH (adr21:Direccion),(mun1:Municipio) WHERE adr21.calle = 'Chapultepec 340' AND mun1.nombre = 'Roma' MERGE (adr21)-[:SE_ENCUENTRA]-(mun1)
 MATCH (adr22:Direccion),(mun1:Municipio) WHERE adr22.calle = 'El prado 444' AND mun1.nombre = 'Lomas de Chapultec' MERGE (adr22)-[:SE_ENCUENTRA]-(mun1)
 MATCH (adr23:Direccion),(mun1:Municipio) WHERE adr23.calle = 'Circuito Novelistas 230' AND mun1.nombre = 'Lomas de Chapultec' MERGE (adr23)-[:SE_ENCUENTRA]-(mun1)
-
 
 /* =====     P E R S O N S  W I T H  A D D R E S S   ===== */
 MATCH (pers1:Persona),(adr1:Direccion) WHERE pers1.nombre = 'Juan' AND adr1.calle = 'Prado Sur 240. Depto 203' MERGE (pers7)-[:DIRECCION]-(adr1)
@@ -438,15 +513,14 @@ MATCH (pers5:Persona {nombre:'Roberto'}), (intercam:Compania {nombre:'INTERCAM B
 MATCH (pers6:Persona {nombre:'Isabel'}), (intercam:Compania {nombre:'INTERCAM BANCO'}) MERGE (pers6)-[r:TRABAJA{puesto:'contador'}]-(intercam) RETURN r;
 MATCH (pers7:Persona {nombre:'Diego'}), (intercam:Compania {nombre:'INTERCAM BANCO'}) MERGE (pers7)-[r:TRABAJA{puesto:'promotor'}]-(intercam) RETURN r;
 
-
 /* =====    C O M P A N I E S  W I T H   R F C   ===== */
-MATCH (acme:Compania {nombre:'ACME SA de CV'}), (rfc5:Rfc {rfc:'ACME651130UVX'}) MERGE (acme)-[r:RFC]-(rfc5) RETURN r;
-MATCH (acmeB:Compania {nombre:'ACME Bodega SA de CV'}), (rfc6:Rfc {rfc:'ACME701130UVX'}) MERGE (acmeb)-[r:RFC]-(rfc6) RETURN r;
-MATCH (acmeT:Compania {nombre:'ACME Tienda SA de CV'}), (rfc7:Rfc {rfc:'ACME701130UVX'}) MERGE (acmet)-[r:RFC]-(rfc7) RETURN r;
-MATCH (prov1:Compania {nombre:'AMAZON SA DE CV'}), (rfc1:Rfc {rfc:'PROVW6011267X2'}) MERGE (prov1)-[r:RFC]-(rfc1) RETURN r;
-MATCH (prov2:Compania {nombre:'ABOGADOS SC'}), (rfc2:Rfc {rfc:'ABOGX6011267X2'}) MERGE (prov2)-[r:RFC]-(rfc2) RETURN r;
-MATCH (ixe:Compania {nombre:'IXE BANCO'}), (rfc3:Rfc {rfc:'IXEGG8011267X2'}) MERGE (ixe)-[r:RFC]-(rfc3) RETURN r;
-MATCH (intercam:Compania {nombre:'INTERCAM BANCO'}), (rfc4:Rfc {rfc:'INTER6011267X2'}) MERGE (intercam)-[r:RFC]-(rfc4) RETURN r;
+MATCH (acme:Compania {nombre:'ACME SA de CV'}), (rfc11:Rfc {rfc:'LLHE6011267X2'}) MERGE (acme)-[r:RFC]-(rfc11) RETURN r;
+MATCH (acmeB:Compania {nombre:'ACME Bodega SA de CV'}), (rfc12:Rfc {rfc:'LEHR6011267P2'}) MERGE (acmeb)-[r:RFC]-(rfc12) RETURN r;
+MATCH (acmeT:Compania {nombre:'ACME Tienda SA de CV'}), (rfc13:Rfc {rfc:'JDSU6011267X2'}) MERGE (acmet)-[r:RFC]-(rfc13) RETURN r;
+MATCH (prov1:Compania {nombre:'AMAZON SA DE CV'}), (rfc14:Rfc {rfc:'RMMM6011267X2'}) MERGE (prov1)-[r:RFC]-(rfc14) RETURN r;
+MATCH (prov2:Compania {nombre:'ABOGADOS SC'}), (rfc15:Rfc {rfc:'LEFF6011267X2'}) MERGE (prov2)-[r:RFC]-(rfc15) RETURN r;
+MATCH (ixe:Compania {nombre:'IXE BANCO'}), (rfc16:Rfc {rfc:'RPJD951128WX2'}) MERGE (ixe)-[r:RFC]-(rfc16) RETURN r;
+MATCH (intercam:Compania {nombre:'INTERCAM BANCO'}), (rfc17:Rfc {rfc:'RPJD9511287X2'}) MERGE (intercam)-[r:RFC]-(rfc17) RETURN r;
 
 /* =====     C O M P A N I E S  W I T H  T E L E P H O N E S   ===== */
 MATCH (acme:Compania {nombre:'ACME SA de CV'}), (tel1:Telefono {numero:'5555966575'}) MERGE (acme)-[r:TELEFONO]-(tel1) RETURN r;
@@ -469,7 +543,6 @@ MATCH (prov2:Compania {nombre:'ABOGADOS SC'}), (adr21:Direccion {calle:'Chapulte
 MATCH (ixe:Compania {nombre:'IXE BANCO'}), (adr22:Direccion {calle:'El prado 444'}) MERGE (ixe)-[r:DIRECCION]-(adr22) RETURN r;
 MATCH (intercam:Compania {nombre:'INTERCAM BANCO'}), (adr23:Direccion {calle:'Circuito Novelistas 230'}) MERGE (intercam)-[r:DIRECCION]-(adr23) RETURN r;
 
-
 /* =====    C O M P A N I E S  W I T H   A C C O U N T S   ===== */
 MATCH (acme:Compania {nombre:'ACME SA de CV'}), (act11:Cuenta {clabe:'3333333330930830393'}) MERGE (acme)-[r:CUENTA]-(act11) RETURN r;
 MATCH (acmet:Compania {nombre:'ACME Tienda SA de CV'}), (act12:Cuenta {clabe:'0003833738937393789'}) MERGE (acmet)-[r:CUENTA]-(act12) RETURN r;
@@ -482,6 +555,13 @@ MATCH (intercam:Compania {nombre:'INTERCAM BANCO'}), (act15:Cuenta {clabe:'38393
 /*                 C O N S T R A I N T S                                     */
 
 SHOW INDEXES
+
+DROP CONSTRAINT unique_persona IF EXISTS;
+CREATE CONSTRAINT unique_persona FOR (persona:Persona) REQUIRE persona.idPersona IS UNIQUE
+
+DROP CONSTRAINT unique_compania IF EXISTS;
+CREATE CONSTRAINT unique_compania FOR (compania:Compania) REQUIRE compania.idPersona IS UNIQUE
+
 DROP CONSTRAINT unique_sector IF EXISTS;
 CREATE CONSTRAINT unique_sector FOR (sector:Sector) REQUIRE sector.nombre IS UNIQUE
 
@@ -500,6 +580,8 @@ CREATE CONSTRAINT unique_codigo FOR (codigo:Codigo) REQUIRE codigo.cp IS UNIQUE
 DROP CONSTRAINT unique_email IF EXISTS;
 CREATE CONSTRAINT unique_email FOR (email:Email) REQUIRE email.uri IS UNIQUE
 
+DROP CONSTRAINT unique_rfc IF EXISTS;
+CREATE CONSTRAINT unique_rfc FOR (rfc:Rfc) REQUIRE rfc.rfc IS UNIQUE
 
 /* ========================================================================= */
 /* =====       E N D  O F  M I N I M U M  D A T A  R E Q U I R E D     ===== */
